@@ -1,0 +1,32 @@
+[
+  {
+      "id": 1,
+      "name": "Robo Friends",
+      "description": "A small project using Javascript, HTML and CSS",
+      "github": "https://github.com/Shuicohen/DI-Bootcamp-Stage1/tree/main/week5/day5/exercise"
+  },
+  {
+      "id": 2,
+      "name": "Personal Finance Tracker",
+      "description": "A GUI based project using Python and Tkinter",
+      "github": "https://github.com/Shuicohen/Hackathon"
+  },
+  {
+      "id": 3,
+      "name": "Star Wars Character Info",
+      "description": "A project using HTML, CSS and Javascript to display random Star Wars characters",
+      "github": "https://github.com/Shuicohen/DI-Bootcamp-Stage1/tree/main/week6/day3/exercise"
+  },
+  {
+    "id": 4,
+    "name": "Currency Converter",
+    "description": "A currency converter built with HTML, CSS and Javascript",
+    "github": "https://github.com/Shuicohen/DI-Bootcamp-Stage1/tree/722860c37b256e667ec026e93c99e473f1cefce0/week6/day3/daily_challenge"
+  },
+  {
+    "id": 5,
+    "name": "More to come",
+    "description": "Coming soon....",
+    "github": "https://github.com/Shuicohen"
+  }
+]

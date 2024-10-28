@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get In Touch - Yehoshua's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <div class="logo">Shui's Portfolio.</div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Contact Section -->
+    <section class="contact">
+        
+        <form id="contact">
+            <h2>Contact Me</h2>
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" required>
+            </div><br>
+            <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" required>
+            </div><br>
+            <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea id="message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+    </section>
+    
+
+    <footer>
+        <div class="footer-content">
+          <a href="https://github.com/Shuicohen">
+            <i class="fa fa-github" style="font-size:24px"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/yehoshua-shui-cohen-400018239?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">
+            <i class="fa fa-linkedin" style="font-size:24px"></i>
+          </a>
+          <p>&copy; 2024 Shui. All rights reserved.</p>
+        </div>
+      </footer>
+  
+      <script>
+        document.getElementById('contact').addEventListener('submit', function (e) {
+            e.preventDefault();
+    
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+    
+            // Log form data before sending to the server
+            console.log('Form Data: ', { name, email, message });
+    
+            fetch('http://localhost:3000/contact', {  // Ensure correct URL if front and back are on different ports
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, email, message })
+            })
+            .then(response => {
+                console.log('Response status:', response.status);  // Log status code for debugging
+                if (!response.ok) {
+                    throw new Error('Network response was not OK');
+                }
+                return response.text();
+            })
+            .then(data => {
+                console.log('Success:', data);
+                alert('Message sent successfully!');
+                document.getElementById('contact').reset();  // Clear the form
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was a problem submitting your form.');
+            });
+        });
+    </script>
+    
+    
+
+</body>
+</html>

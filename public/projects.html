@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Yehoshua's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <div class="logo">Shui's Portfolio</div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h3>My Projects</h3>
+    <!-- Project Section -->
+    <section id="projects-section">
+        
+        <div id="projects-list">
+            <!-- Projects will be dynamically loaded here -->
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+          <a href="https://github.com/Shuicohen">
+            <i class="fa fa-github" style="font-size:24px"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/yehoshua-shui-cohen-400018239?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">
+            <i class="fa fa-linkedin" style="font-size:24px"></i>
+          </a>
+          <a href="contact.html">
+            <i class="fa fa-comment-o" style="font-size:24px"></i>
+          </a>
+          <p>&copy; 2024 Shui. All rights reserved.</p>
+        </div>
+    </footer>
+  
+    <script>
+        // Fetch projects and display them
+        document.addEventListener('DOMContentLoaded', () => {
+    console.log('Loading projects...');  // Add this log for debugging
+
+    fetch('http://localhost:3000/api/projects')
+        .then(response => {
+            console.log('Received response from API:', response);  // Add this log
+            if (!response.ok) {
+                throw new Error('Network response was not OK');
+            }
+            return response.json();
+        })
+        .then(projects => {
+            console.log('Projects data received:', projects);  // Add this log
+            const projectsList = document.getElementById('projects-list');
+
+            if (projects.length === 0) {
+                projectsList.innerHTML = '<p>No projects found.</p>';
+                return;
+            }
+
+            projects.forEach(project => {
+                const projectCard = document.createElement('div');
+                projectCard.className = 'project-card';
+
+                projectCard.innerHTML = `
+                    <h4>${project.name}</h4>
+                    <p>${project.description}</p>
+                    <a href="${project.github}" target="_blank">GitHub</a>
+                `;
+
+                projectsList.appendChild(projectCard);
+            });
+        })
+        .catch(err => {
+            console.error('Error fetching projects:', err);
+            document.getElementById('projects-list').innerHTML = '<p>Error loading projects.</p>';
+        });
+});
+
+    </script>
+
+</body>
+</html>
