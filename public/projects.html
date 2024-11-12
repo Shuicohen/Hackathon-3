@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
     <header>
         <nav>
             <div class="logo">Shui's Portfolio</div>
@@ -25,10 +24,9 @@
             </ul>
         </nav>
     </header>
-    <h3>My Projects</h3>
-    <!-- Project Section -->
-    <section id="projects-section">
-        
+
+    <section id="projects-section" class="container page-content">
+        <h3>My Projects</h3>
         <div id="projects-list">
             <!-- Projects will be dynamically loaded here -->
         </div>
@@ -50,11 +48,11 @@
     </footer>
   
     <script>
-        // Fetch projects and display them
-        document.addEventListener('DOMContentLoaded', () => {
+// Fetch projects and display them
+document.addEventListener('DOMContentLoaded', () => {
     console.log('Loading projects...');  // Add this log for debugging
 
-    fetch('https://portfolio-page-kdqi.onrender.com/api/projects')
+    fetch('http://localhost:3000/api/projects')
         .then(response => {
             console.log('Received response from API:', response);  // Add this log
             if (!response.ok) {
@@ -75,10 +73,12 @@
                 const projectCard = document.createElement('div');
                 projectCard.className = 'project-card';
 
+                // Add GitHub link always, and Live link conditionally
                 projectCard.innerHTML = `
                     <h4>${project.name}</h4>
                     <p>${project.description}</p>
                     <a href="${project.github}" target="_blank">GitHub</a>
+                    ${project.live ? `<br><a href="${project.live}" target="_blank">Live</a>` : ''}
                 `;
 
                 projectsList.appendChild(projectCard);
