@@ -9,45 +9,43 @@ html, body {
     height: 100%;
     display: flex;
     flex-direction: column;
-  }
-
-body {
     font-family: 'Poppins', sans-serif;
-    
     color: #333;
+}
+
+/* General Body Styling */
+body {
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     min-height: 100vh;
-    
+    width: 100%;
 }
 
+/* Header */
 header {
     position: fixed;
-    z-index: 1000;
     top: 0;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     padding: 10px;
     background-color: #c9b5f3;
-    justify-content: center;
-
+    z-index: 1000;
 }
 
+/* Navigation Styling */
 .logo {
     font-weight: 800;
     font-size: 1.5em;
-    
-    justify-content: left;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
     gap: 2rem;
-    justify-content: center;
 }
 
 .nav-links li a {
@@ -56,12 +54,49 @@ header {
     font-weight: 600;
 }
 
+/* Download CV Button */
+.download-btn {
+    padding: 0 10px;
+    background-color: transparent;
+    color: black;
+    border-radius: 50%;
+    font-size: 1.5em;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.download-btn i {
+    color: black;
+}
+
+.download-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #6d7279;
+}
+
+/* Main content container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Offset class for about and projects pages to avoid overlap with header */
+.page-content {
+    padding-top: 100px; /* Adjust based on actual header height */
+}
+
+/* Hero section styling */
 .hero {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 80%;
     margin-top: 200px;
+    gap: 20px;
 }
 
 .intro {
@@ -118,9 +153,9 @@ header {
     border: 3px solid #7e3ff2;
 }
 
+/* Projects section */
 #projects-section {
-    width: 80%;
-    margin-top: 50px;
+    width: 100%;
     text-align: center;
 }
 
@@ -144,111 +179,67 @@ header {
     width: 250px;
     text-align: center;
     margin: 20px;
-    
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .project-card:hover {
+}
+
+.project-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  .project-card h4 {
+}
+
+.project-card h4 {
     font-size: 1.5em;
     margin-bottom: 10px;
-  }
-  
-  .project-card p {
+}
+
+.project-card p {
     font-size: 1em;
     margin-bottom: 10px;
-  }
-  
-  .project-card a {
+}
+
+.project-card a {
     text-decoration: none;
     color: #0073b1;
     font-weight: bold;
     transition: color 0.3s ease;
-  }
-  
-  .project-card a:hover {
-    color: #005582;
-  }
-  
-  .project-card:active {
-    transform: translateY(0);
-  }
-
-
-@media screen and (max-width: 768px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .profile {
-        margin-top: 20px;
-    }
-
-    .intro h2 {
-        font-size: 2.5em;
-    }
 }
 
-.about {
-    margin-top: 1500px; 
-    padding: 20px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center; /* Optional: to control width of the text block */
-  }
+.project-card a:hover {
+    color: #005582;
+}
 
-/* Footer styles */
+/* Footer */
 footer {
-    
     background-color: transparent;
     text-align: center;
     padding: 10px 0;
-    position: relative;
-    bottom: 0;
     width: 100%;
-  }
-  
-  .footer-content a {
+    margin-top: auto;
+}
+
+.footer-content a {
     margin: 0 10px;
-  }
-  
-  .footer-content img {
+}
+
+.footer-content img {
     width: 25px;
     height: 25px;
     filter: grayscale(100%);
     transition: filter 0.3s;
-  }
-  
-  .footer-content img:hover {
+}
+
+.footer-content img:hover {
     filter: none;
-  }
-  
-  /* Make sure footer stays at the bottom */
-  html {
-    height: 100%;
-  }
-  
-  footer {
-    margin-top: auto;
-  }
-  
-/* Contact Form Container */
+}
+
+/* Contact Form */
 .contact {
-    margin-top: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh; /* Center the form vertically */
+    height: 80vh;
 }
 
-
-/* Contact Form Styling */
 form {
     background-color: #b99cee;
     padding: 40px;
@@ -256,6 +247,7 @@ form {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     max-width: 500px;
     width: 100%;
+    text-align: center;
 }
 
 .form-group {
