@@ -20,6 +20,11 @@ app.use((req, res, next) => {
     next();
 });
 
+// Serve home.html on root route
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/home.html'));
+});
+
 // Serve project data from JSON file
 app.get('/api/projects', (req, res) => {
     console.log('Fetching project data from JSON file...');
