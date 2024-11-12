@@ -25,8 +25,16 @@
   },
   {
     "id": 5,
+    "name": "AI Travel Planner",
+    "description": "The AI Travel Planner is a full-stack app offering AI-driven travel recommendations. Users can search destinations, view suggestions, and save trips with a responsive React frontend and a secure Node.js/Express backend.",
+    "github": "https://github.com/Shuicohen",
+    "live": "https://ai-travel-planner-7o5n.onrender.com/"
+  },
+  {
+    "id": 6,
     "name": "More to come",
     "description": "Coming soon....",
     "github": "https://github.com/Shuicohen"
   }
 ]
+
