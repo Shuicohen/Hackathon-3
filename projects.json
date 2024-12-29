@@ -32,6 +32,13 @@
   },
   {
     "id": 6,
+    "name": "Sweet Tooth",
+    "description": "I developed Sweet Tooth, a responsive e-commerce web app with React, Node.js, and PostgreSQL, featuring user authentication, admin dashboard, and real-time cart functionality.",
+    "github": "https://github.com/Shuicohen/sweet-tooth"
+    "live": "https://sweettooth-zhjg.onrender.com"
+  },
+  {
+    "id": 7,
     "name": "More to come",
     "description": "Coming soon....",
     "github": "https://github.com/Shuicohen"
