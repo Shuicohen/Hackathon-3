@@ -46,6 +46,13 @@
   },
   {
     "id": 8,
+    "name": "IP Address Tracker",
+    "description": "The IP Address Tracker is a web app that lets users search for IP addresses or domains to view location, timezone, and ISP details on an interactive map. Built with React, Node.js, and Leaflet.js, it provides a responsive and user-friendly experience.",
+    "github": "https://github.com/Shuicohen/IP-Address-Tracker",
+    "live": "https://ip-address-tracker-1.onrender.com"
+  },
+  {
+    "id": 9,
     "name": "More to come",
     "description": "Coming soon....",
     "github": "https://github.com/Shuicohen"
