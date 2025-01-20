@@ -1,9 +1,10 @@
 [
   {
       "id": 1,
-      "name": "Robo Friends",
-      "description": "A small project using Javascript, HTML and CSS",
-      "github": "https://github.com/Shuicohen/DI-Bootcamp-Stage1/tree/main/week5/day5/exercise"
+      "name": "REST Countries API",
+      "description": "REST Countries API is a full-stack app to browse, search, and filter country details with a modern UI and dark mode support.",
+      "github": "https://github.com/Shuicohen/REST-country-API",
+      "live": "https://rest-country-api-seven-blue.vercel.app/"
   },
   {
       "id": 2,
