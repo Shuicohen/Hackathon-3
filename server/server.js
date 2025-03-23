@@ -13,6 +13,11 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
+// Redirect root to home.html
+app.get('/', (req, res) => {
+    res.redirect('/home.html');
+});
+
 // Serve project data from JSON file
 app.get('/api/projects', (req, res) => {
     try {
@@ -40,3 +45,4 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
