@@ -3,64 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get In Touch - Yehoshua's Portfolio</title>
+    <title>Contact - Yehoshua's Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
     <header>
         <nav>
-            <div class="logo">Shui's Portfolio.</div>
+            <div class="logo">Shui's Portfolio</div>
             <ul class="nav-links">
                 <li><a href="home.html">Home</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
                 <li>
                     <a href="Shui Cohen CV.docx" class="download-btn" download="Shui Cohen CV.docx" title="Download CV">
-                        <i class="fa fa-download"></i>
+                        <i class="fas fa-download"></i> CV
                     </a>
                 </li>
             </ul>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
         </nav>
     </header>
-    
-    <!-- Contact Section -->
-    <section class="contact">
-        
-        <form id="contact">
-            <h2>Contact Me</h2>
-            <div class="form-group">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" required>
-            </div><br>
-            <div class="form-group">
-                <label for="email">Your Email</label>
-                <input type="email" id="email" required>
-            </div><br>
-            <div class="form-group">
-                <label for="message">Your Message</label>
-                <textarea id="message" required></textarea>
+
+    <section class="contact container">
+        <div class="contact-content">
+            <div class="contact-info">
+                <h2>Let's Connect</h2>
+                <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.</p>
+                
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        <div class="method-details">
+                            <h3>Email</h3>
+                            <p>shui.cohen123@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="method-details">
+                            <h3>Location</h3>
+                            <p>Israel</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://github.com/Shuicohen" target="_blank" class="social-icon">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/yehoshua-shui-cohen-400018239" target="_blank" class="social-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
             </div>
-            <button type="submit" class="btn btn-primary">Send Message</button>
-        </form>
+
+            <form id="contact" class="contact-form">
+                <div class="form-header">
+                    <h2>Send Message</h2>
+                    <p>Fill out the form below, and I'll get back to you soon!</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="name" required placeholder="John Doe">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" required placeholder="john@example.com">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <div class="input-group">
+                        <i class="fas fa-comment-alt"></i>
+                        <textarea id="message" required placeholder="How can I help you?"></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </form>
+        </div>
     </section>
-    
 
     <footer>
         <div class="footer-content">
-          <a href="https://github.com/Shuicohen">
-            <i class="fa fa-github" style="font-size:24px"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/yehoshua-shui-cohen-400018239?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">
-            <i class="fa fa-linkedin" style="font-size:24px"></i>
-          </a>
-          <p>&copy; 2024 Shui. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/Shuicohen" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/yehoshua-shui-cohen-400018239" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+            <p>&copy; 2025 Shui Cohen. All rights reserved.</p>
         </div>
-      </footer>
-  
-      <script>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('show');
+        });
+
+        // Form submission
         document.getElementById('contact').addEventListener('submit', function (e) {
             e.preventDefault();
     
@@ -68,10 +127,13 @@
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
     
-            // Log form data before sending to the server
-            console.log('Form Data: ', { name, email, message });
+            // Show loading state
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.innerHTML;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitButton.disabled = true;
     
-            fetch('http://localhost:3000/contact', {  // Ensure correct URL if front and back are on different ports
+            fetch('http://localhost:3000/contact', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -79,25 +141,51 @@
                 body: JSON.stringify({ name, email, message })
             })
             .then(response => {
-                console.log('Response status:', response.status);  // Log status code for debugging
                 if (!response.ok) {
                     throw new Error('Network response was not OK');
                 }
                 return response.text();
             })
             .then(data => {
-                console.log('Success:', data);
-                alert('Message sent successfully!');
-                document.getElementById('contact').reset();  // Clear the form
+                // Show success message
+                showNotification('Message sent successfully!', 'success');
+                document.getElementById('contact').reset();
             })
             .catch(error => {
-                console.error('Error:', error);
-                alert('There was a problem submitting your form.');
+                // Show error message
+                showNotification('There was a problem sending your message. Please try again.', 'error');
+            })
+            .finally(() => {
+                // Reset button state
+                submitButton.innerHTML = originalText;
+                submitButton.disabled = false;
             });
         });
-    </script>
-    
-    
 
+        // Notification function
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+                ${message}
+            `;
+            document.body.appendChild(notification);
+
+            // Remove notification after 3 seconds
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Add active class to current navigation item
+        const currentLocation = location.href;
+        const menuItems = document.querySelectorAll('.nav-links a');
+        menuItems.forEach(item => {
+            if(item.href === currentLocation) {
+                item.classList.add('active');
+            }
+        });
+    </script>
 </body>
 </html>

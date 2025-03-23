@@ -6,56 +6,93 @@
     <title>Home - Yehoshua's Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
     <header>
         <nav>
             <div class="logo">Shui's Portfolio</div>
             <ul class="nav-links">
-                <li><a href="home.html">Home</a></li>
+                <li><a href="home.html" class="active">Home</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
                 <li>
                     <a href="Shui Cohen CV.docx" class="download-btn" download="Shui Cohen CV.docx" title="Download CV">
-                        <i class="fa fa-download"></i>
+                        <i class="fas fa-download"></i> CV
                     </a>
                 </li>
             </ul>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
         </nav>
     </header>
 
-    <!-- Main Section -->
-    <section class="hero">
+    <section class="hero container">
         <div class="intro">
-            <h1>Hey, I'm Shui 👋</h1>
-            <h2><span class="highlight">Fullstack</span> Developer</h2>
-            <p>I'm a fullstack developer based in Israel. I'll help you build beautiful websites your users will love.</p>
+            <span class="greeting">Hey there 👋</span>
+            <h1>I'm Shui Cohen</h1>
+            <h2>Building the <span class="highlight">future</span><br>one line of code at a time</h2>
+            <p>Passionate fullstack developer based in Israel, specializing in creating beautiful and functional web experiences that users love.</p>
+            <div class="tech-stack">
+                <span class="tech-badge"><i class="fab fa-react"></i> React</span>
+                <span class="tech-badge"><i class="fab fa-node-js"></i> Node.js</span>
+                <span class="tech-badge"><i class="fab fa-python"></i> Python</span>
+                <span class="tech-badge"><i class="fas fa-database"></i> SQL</span>
+            </div>
             <div class="cta">
-                <a href="contact.html" class="btn btn-primary">Get In Touch</a>
-                <a href="projects.html" class="btn btn-secondary">Browse Projects</a>
+                <a href="contact.html" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Get In Touch
+                </a>
+                <a href="projects.html" class="btn btn-secondary">
+                    <i class="fas fa-code"></i> View Projects
+                </a>
             </div>
         </div>
         <div class="profile">
-            <img src= "img.png">
+            <img src="img.png" alt="Shui Cohen" class="profile-img">
         </div>
     </section>
 
- 
     <footer>
         <div class="footer-content">
-          <a href="https://github.com/Shuicohen">
-            <i class="fa fa-github" style="font-size:24px"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/yehoshua-shui-cohen-400018239?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">
-            <i class="fa fa-linkedin" style="font-size:24px"></i>
-          </a>
-          <p>&copy; 2024 Shui. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/Shuicohen" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/yehoshua-shui-cohen-400018239" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+            <p>&copy; 2024 Shui Cohen. All rights reserved.</p>
         </div>
-      </footer>
-  
+    </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('show');
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add active class to current navigation item
+        const currentLocation = location.href;
+        const menuItems = document.querySelectorAll('.nav-links a');
+        menuItems.forEach(item => {
+            if(item.href === currentLocation) {
+                item.classList.add('active');
+            }
+        });
+    </script>
 </body>
 </html>

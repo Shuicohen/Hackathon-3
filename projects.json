@@ -40,7 +40,7 @@
   },
   {
     "id": 7,
-    "name": "Planet fact site",
+    "name": "Planet Fact Site",
     "description": "This is a responsive Planets Fact Site built with React and Node.js. It provides detailed planet information through interactive tabs and dynamic navigation. The app fetches data from an API and features a visually appealing, mobile-friendly design.",
     "github": "https://github.com/Shuicohen/planet-fact-site",
     "live": "https://planet-fact-site-1.onrender.com"
@@ -66,4 +66,3 @@
     "github": "https://github.com/Shuicohen"
   }
 ]
-
