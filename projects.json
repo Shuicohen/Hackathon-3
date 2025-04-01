@@ -61,6 +61,13 @@
   },
   {
     "id": 10,
+    "name": "Handy Hemi",
+    "description": "A frontend handyman services platform built with React, TypeScript. Features include a responsive landing page, Google Reviews integration, and multi-language support (English/Hebrew).",
+    "github": "https://github.com/Shuicohen/handy-hemi",
+    "live": "https://handy-hemi.vercel.app/"
+  },
+  {
+    "id": 11,
     "name": "More to come",
     "description": "Coming soon....",
     "github": "https://github.com/Shuicohen"
