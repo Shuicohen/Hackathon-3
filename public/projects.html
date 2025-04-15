@@ -7,6 +7,354 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .tech-tag {
+            background-color: #f0f7ff;
+            color: #3182ce;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: inline-block;
+            transition: all 0.2s ease;
+        }
+        
+        .tech-tag:hover {
+            background-color: #e1efff;
+            transform: translateY(-2px);
+        }
+        
+        .side-projects {
+            padding-top: 0;
+        }
+        
+        .project-features {
+            margin-bottom: 15px;
+        }
+        
+        .project-features h4 {
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .project-features ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+        
+        .project-features li {
+            margin-bottom: 6px;
+            line-height: 1.5;
+            position: relative;
+        }
+        
+        /* Enhanced card styling */
+        .project-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: white;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project-image {
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 100%);
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .project-card:hover .image-overlay {
+            opacity: 0.4;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+        
+        .project-content {
+            padding: 24px;
+        }
+        
+        .project-content h3 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 1.4rem;
+            color: #2c3e50;
+        }
+        
+        .project-content p {
+            margin-bottom: 16px;
+            color: #505a66;
+            line-height: 1.6;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+        
+        .btn i {
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background-color: #3182ce;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2c5282;
+        }
+        
+        .btn-secondary {
+            background-color: #e2e8f0;
+            color: #2d3748;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #cbd5e0;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-image {
+                height: 180px;
+            }
+            
+            .project-content {
+                padding: 16px;
+            }
+            
+            .project-content h3 {
+                font-size: 1.2rem;
+            }
+            
+            .tech-stack {
+                gap: 6px;
+                margin-bottom: 15px;
+            }
+            
+            .tech-tag {
+                padding: 4px 10px;
+                font-size: 0.8rem;
+            }
+            
+            .btn {
+                padding: 8px 14px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Expandable content styles */
+        .project-short-desc {
+            margin-bottom: 10px;
+            line-height: 1.5;
+            color: #505a66;
+        }
+        
+        .view-details-btn {
+            cursor: pointer;
+            color: #3182ce;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 0;
+            transition: color 0.2s ease;
+        }
+        
+        .view-details-btn:hover {
+            color: #2c5282;
+        }
+        
+        /* Modal styles */
+        .project-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            overflow-y: auto;
+        }
+        
+        .show-modal {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            opacity: 1;
+        }
+        
+        .modal-content {
+            background-color: white;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 50px auto;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+            animation: modalFadeIn 0.3s ease-out;
+        }
+        
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 25px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .modal-header h3 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #2d3748;
+        }
+        
+        .close-modal {
+            font-size: 28px;
+            font-weight: bold;
+            color: #a0aec0;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .close-modal:hover {
+            color: #2d3748;
+        }
+        
+        .modal-body {
+            padding: 25px;
+        }
+        
+        .modal-image {
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .modal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .modal-description {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: #4a5568;
+        }
+        
+        .modal-body .tech-stack {
+            margin: 20px 0;
+        }
+        
+        .modal-body .project-features {
+            margin-bottom: 25px;
+        }
+        
+        .modal-body .project-links {
+            margin-top: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 95%;
+                margin: 20px auto;
+            }
+            
+            .modal-image {
+                height: 200px;
+            }
+            
+            .modal-header {
+                padding: 15px 20px;
+            }
+            
+            .modal-body {
+                padding: 20px;
+            }
+        }
+        
+        /* Grid layout improvements */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        @media (min-width: 1200px) {
+            .projects-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -40,6 +388,21 @@
             <div class="loading">
                 <i class="fas fa-spinner fa-spin"></i>
                 <p>Loading projects...</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="side-projects container">
+        <div class="section-header">
+            <h2>Side Projects</h2>
+            <p>Creative experiments and specialized tools I've built outside of full-stack development.</p>
+        </div>
+        
+        <div id="side-projects-list" class="projects-grid">
+            <!-- Side projects will be dynamically loaded here -->
+            <div class="loading">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Loading side projects...</p>
             </div>
         </div>
     </section>
@@ -142,6 +505,163 @@
                         <div class="error-message">
                             <i class="fas fa-exclamation-circle"></i>
                             <p>Error loading projects. Please try again later.</p>
+                            <p class="error-details">${err.message}</p>
+                        </div>
+                    `;
+                });
+        });
+
+        // Load side projects from JSON file
+        document.addEventListener('DOMContentLoaded', () => {
+            const sideProjectsList = document.getElementById('side-projects-list');
+            
+            // Show loading animation initially
+            sideProjectsList.innerHTML = `
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Loading side projects...</p>
+                </div>
+            `;
+            
+            // Fetch side projects from JSON file
+            fetch('sideprojects.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not OK');
+                    }
+                    return response.json();
+                })
+                .then(sideProjects => {
+                    // Clear loading animation
+                    sideProjectsList.innerHTML = '';
+                    
+                    if (sideProjects.length === 0) {
+                        sideProjectsList.innerHTML = '<p class="no-projects">No side projects found.</p>';
+                        return;
+                    }
+                    
+                    // Render side projects
+                    sideProjects.forEach(project => {
+                        const projectCard = document.createElement('div');
+                        projectCard.className = 'project-card';
+                        
+                        // Create features list HTML if features exist
+                        let featuresHtml = '';
+                        if (project.features && project.features.length > 0) {
+                            featuresHtml = `
+                                <div class="project-features">
+                                    <h4>Key Features:</h4>
+                                    <ul>
+                                        ${project.features.map(feature => `<li>${feature}</li>`).join('')}
+                                    </ul>
+                                </div>
+                            `;
+                        }
+                        
+                        projectCard.innerHTML = `
+                            <div class="project-image">
+                                <img src="${project.image}" 
+                                     alt="${project.name} screenshot"
+                                     loading="lazy">
+                                <div class="image-overlay"></div>
+                            </div>
+                            <div class="project-content">
+                                <h3>${project.name}</h3>
+                                <div class="tech-stack">
+                                    ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                                </div>
+                                <p class="project-short-desc">${project.description.split('.')[0]}.</p>
+                                <div class="view-details-btn">
+                                    <i class="fas fa-external-link-alt"></i> View Details
+                                </div>
+                            </div>
+                        `;
+
+                        // Create modal for this project
+                        const modal = document.createElement('div');
+                        modal.className = 'project-modal';
+                        modal.id = `modal-${project.name.replace(/\s+/g, '-').toLowerCase()}`;
+                        
+                        modal.innerHTML = `
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3>${project.name}</h3>
+                                    <span class="close-modal">&times;</span>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="modal-image">
+                                        <img src="${project.image}" alt="${project.name} screenshot">
+                                    </div>
+                                    <div class="tech-stack">
+                                        ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                                    </div>
+                                    <div class="modal-description">
+                                        <p>${project.description}</p>
+                                    </div>
+                                    ${project.features && project.features.length > 0 ? `
+                                    <div class="project-features">
+                                        <h4>Key Features:</h4>
+                                        <ul>
+                                            ${project.features.map(feature => `<li>${feature}</li>`).join('')}
+                                        </ul>
+                                    </div>
+                                    ` : ''}
+                                    <div class="project-links">
+                                        <a href="${project.github}" target="_blank" class="btn btn-secondary">
+                                            <i class="fab fa-github"></i> View Code
+                                        </a>
+                                        ${project.demo ? `
+                                        <a href="${project.demo}" target="_blank" class="btn btn-primary">
+                                            <i class="fas fa-external-link-alt"></i> Live Demo
+                                        </a>
+                                        ` : ''}
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        
+                        document.body.appendChild(modal);
+                        
+                        // Add click event to open modal
+                        const viewDetailsBtn = projectCard.querySelector('.view-details-btn');
+                        
+                        viewDetailsBtn.addEventListener('click', () => {
+                            modal.classList.add('show-modal');
+                            document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+                        });
+                        
+                        // Add click event to close modal
+                        const closeBtn = modal.querySelector('.close-modal');
+                        
+                        closeBtn.addEventListener('click', () => {
+                            modal.classList.remove('show-modal');
+                            document.body.style.overflow = ''; // Re-enable scrolling
+                        });
+                        
+                        // Close modal when clicking outside the content
+                        modal.addEventListener('click', (e) => {
+                            if (e.target === modal) {
+                                modal.classList.remove('show-modal');
+                                document.body.style.overflow = '';
+                            }
+                        });
+                        
+                        // Close modal on escape key press
+                        document.addEventListener('keydown', (e) => {
+                            if (e.key === 'Escape' && modal.classList.contains('show-modal')) {
+                                modal.classList.remove('show-modal');
+                                document.body.style.overflow = '';
+                            }
+                        });
+                        
+                        sideProjectsList.appendChild(projectCard);
+                    });
+                })
+                .catch(err => {
+                    sideProjectsList.innerHTML = `
+                        <div class="error-message">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <p>Error loading side projects. Please try again later.</p>
                             <p class="error-details">${err.message}</p>
                         </div>
                     `;
