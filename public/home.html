@@ -28,12 +28,15 @@
             </div>
         </nav>
     </header>
+
     <section class="hero container">
         <div class="intro">
             <span class="greeting">Hey there 👋</span>
             <h1>I'm Shui Cohen</h1>
             <h2>Building the <span class="highlight">future</span><br>one line of code at a time</h2>
-            <p>AI Automation Engineer with over 1 year of experience in agentic workflows, LLM-integrated systems, and automations using AWS CDK, Python, and Playwright. Reduced manual processes by 30%+ at eScribers through intelligent document processing and workflow orchestration. Passionate about scalable AI, prompt engineering, ethical practices, and full-stack development with React and Node.js.</p>
+            
+            <p>AI Automation Engineer with over 1 year of experience building agentic workflows, LLM-integrated systems, and event-driven automations using AWS CDK, Python, and Playwright. Passionate about scalable AI solutions, prompt engineering, ethical practices, and full-stack development with React and Node.js.</p>
+
             <div class="tech-stack">
                 <span class="tech-badge"><i class="fab fa-react"></i> React</span>
                 <span class="tech-badge"><i class="fab fa-node-js"></i> Node.js</span>
@@ -42,6 +45,7 @@
                 <span class="tech-badge"><i class="fab fa-aws"></i> AWS</span>
                 <span class="tech-badge"><i class="fas fa-robot"></i> LLM/AI</span>
             </div>
+
             <div class="cta">
                 <a href="contact.html" class="btn btn-primary">
                     <i class="fas fa-paper-plane"></i> Get In Touch
@@ -51,44 +55,33 @@
                 </a>
             </div>
         </div>
+
         <div class="profile">
             <img src="img.png" alt="Shui Cohen" class="profile-img">
         </div>
     </section>
+
     <footer>
         <div class="footer-content">
             <div class="social-links">
-                <a href="https://github.com/Shuicohen" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/yehoshua-shui-cohen-400018239" target="_blank">
-                    <i class="fab fa-linkedin"></i>
-                </a>
+                <a href="https://github.com/Shuicohen" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/yehoshua-shui-cohen-400018239" target="_blank"><i class="fab fa-linkedin"></i></a>
             </div>
             <p>&copy; 2025 Shui Cohen. All rights reserved.</p>
         </div>
     </footer>
+
     <script>
         // Mobile menu toggle
         document.querySelector('.mobile-menu').addEventListener('click', function() {
             document.querySelector('.nav-links').classList.toggle('show');
         });
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-        // Add active class to current navigation item
+
+        // Active nav link
         const currentLocation = location.href;
         const menuItems = document.querySelectorAll('.nav-links a');
         menuItems.forEach(item => {
-            if(item.href === currentLocation) {
-                item.classList.add('active');
-            }
+            if(item.href === currentLocation) item.classList.add('active');
         });
     </script>
 </body>
